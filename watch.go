@@ -17,10 +17,6 @@ func watch(parser *arg.Parser, args Args) {
 			args.Watch.PublicKey = filepath.Join(filepath.Dir(self), "public-key.sig")
 		}
 	}
-	if _, err := os.Stat(args.Watch.PublicKey); err != nil {
-		parser.Fail("Cannot open " + args.Watch.PublicKey + ". Provide a valid path to public key file")
-		return
-	}
 
 	for {
 		var execName string

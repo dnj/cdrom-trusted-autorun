@@ -30,8 +30,11 @@ type GenerateKeyCmd struct {
 	PrivateKey string `arg:"-k" help:"Path to private key file. If file already exists it will be overwrite" placeholder:"PATH"`
 	PublicKey  string `arg:"-p" help:"Path to public key file. If file already exists it will be overwrite" placeholder:"PATH"`
 }
+type ServiceCmd struct {
+}
 
 type Args struct {
+	Service     *ServiceCmd     `arg:"subcommand:service"`
 	Watch       *WatchCmd       `arg:"subcommand:watch"`
 	Sign        *SignCmd        `arg:"subcommand:sign"`
 	Verify      *VerifyCmd      `arg:"subcommand:verify"`
@@ -56,6 +59,8 @@ func main() {
 		verify(parser, args)
 	case args.Watch != nil:
 		watch(parser, args)
+	case args.Service != nil:
+		RunAsService()
 	default:
 		parser.WriteUsage(os.Stderr)
 	}
