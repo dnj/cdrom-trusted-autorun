@@ -28,5 +28,5 @@ jobs:
       
     - uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.node-version }} binaries
+        name: ${{ matrix.os }} binaries
         path: cdrom-trusted-autorun*
