@@ -32,7 +32,7 @@ jobs:
       shell: bash
 
     - name: build msi
-      run: go-msi make --msi cdrom-trusted-autorun.msi --arch amd64 --version $GITHUB_JOB --src .\templates\
+      run: go-msi make --msi cdrom-trusted-autorun.msi --arch amd64 --version $env:GITHUB_JOB --src .\templates\
     
     - uses: actions/upload-artifact@v2
       with:
