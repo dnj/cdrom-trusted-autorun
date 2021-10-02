@@ -30,6 +30,9 @@ jobs:
     - name: Set path
       run: echo "C:\Program Files (x86)\WiX Toolset v3.11\bin" >> $GITHUB_PATH
       shell: bash
+
+    - name: build msi
+      run: go-msi make --msi cdrom-trusted-autorun.msi --arch amd64 --version $GITHUB_JOB --src .\templates\
     
     - uses: actions/upload-artifact@v2
       with:
